@@ -1,0 +1,111 @@
+# basic config
+ouman-prometheus:
+  serial: /dev/ttyS4
+  port: 9010
+
+# device registers
+devices:
+    EH-203:
+    - 0x12: # basic temperature, single value in single register 
+        0x0:
+          short: "out_temp"
+          type: TEMP_100
+          name: Outdoor temperature
+    - 0x13:
+        0x0:
+          short: "reg_19_temp"
+          type: TEMP_100
+          name: Register 19 (0x13)
+    - 0x14:
+        0x0:
+          short: "l1_supply_temp"
+          type: TEMP_100
+          name: L1 supply water
+    - 0x15:
+        0x0:
+          short: "l1_room_temp"
+          type: TEMP_100
+          name: L1 room temp
+    - 0x16:
+        0x0:
+          short: "reg_22_temp"
+          type: TEMP_100
+          name: Register 22 (0x16)
+    - 0x17:
+        0x0:
+          short: "l1_return_temp"
+          type: TEMP_100
+          name: L1 return water
+    - 0x18:
+        0x0:
+          short: "lv_supply_temp"
+          type: TEMP_100
+          name: LV supply water
+    - 0x19:
+        0x0:
+          short: "lv_return_temp"
+          type: TEMP_100
+          name: LV return water
+    - 0x1a:
+        0x0:
+          short: "l2_supply_temp"
+          type: TEMP_100
+          name: L2 supply water
+    - 0x1b:
+        0x0:
+          short: "meas_6_temp"
+          type: TEMP_100
+          name: Measurement 6
+    - 0x1c:
+        0x0:
+          short: "reg_28_temp"
+          type: TEMP_100
+          name: Register 28 (0x1c)
+    - 0x1d:
+        0x0:
+          short: "reg_29_temp"
+          type: TEMP_100
+          name: Register 29 (0x1d)
+    - 0x1e:
+        0x0:
+          short: "reg_30_temp"
+          type: TEMP_100
+          name: Register 30 (0x1e)
+    - 0x1f:
+        0x0:
+          short: "reg_31_temp"
+          type: TEMP_100
+          name: Register 31 (0x1f)
+    - 0x20:
+        0x0:
+          short: "reg_32_temp"
+          type: TEMP_100
+          name: Register 32 (0x20)
+    - 0x21:
+        0x0:
+          short: "meas_9_temp"
+          type: TEMP_100
+          name: Measurement 9
+    - 0x22:
+        0x0:
+          short: "meas_10_temp"
+          type: TEMP_100
+          name: Measurement 10
+    - 0x29:
+        0x0:
+          short: "meas_11_temp"
+          type: TEMP_100
+          name: Measurement 11
+    - 0x0c: # register with multiple values
+        0x0:
+          short: "l1minus20"
+          type: BYTE
+          name: L1 -20
+        0x1:
+          short: "l1zero"
+          type: BYTE
+          name: L1 0
+        0x2:
+          short: "l1plus20"
+          type: BYTE
+          name: L1 +20          
