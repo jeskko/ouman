@@ -18,14 +18,14 @@ devices:
           name: Register 19 (0x13)
     - 0x14:
         0x0:
-          short: "l1_supply_temp"
+          short: "h1_supply_temp"
           type: TEMP_100
-          name: L1 supply water
+          name: H1 supply water
     - 0x15:
         0x0:
-          short: "l1_room_temp"
+          short: "H1_room_temp"
           type: TEMP_100
-          name: L1 room temp
+          name: H1 room temp
     - 0x16:
         0x0:
           short: "reg_22_temp"
@@ -33,24 +33,24 @@ devices:
           name: Register 22 (0x16)
     - 0x17:
         0x0:
-          short: "l1_return_temp"
+          short: "h1_return_temp"
           type: TEMP_100
-          name: L1 return water
+          name: H1 return water
     - 0x18:
         0x0:
-          short: "lv_supply_temp"
+          short: "hw_supply_temp"
           type: TEMP_100
-          name: LV supply water
+          name: HW supply water
     - 0x19:
         0x0:
-          short: "lv_return_temp"
+          short: "HW_return_temp"
           type: TEMP_100
-          name: LV return water
+          name: HW return water
     - 0x1a:
         0x0:
-          short: "l2_supply_temp"
+          short: "h2_supply_temp"
           type: TEMP_100
-          name: L2 supply water
+          name: H2 supply water
     - 0x1b:
         0x0:
           short: "meas_6_temp"
@@ -98,14 +98,281 @@ devices:
           name: Measurement 11
     - 0x0c: # register with multiple values
         0x0:
-          short: "l1minus20"
+          short: "h1_minus20"
           type: BYTE
-          name: L1 -20
+          name: H1 curve -20
         0x1:
-          short: "l1zero"
+          short: "h1_zero"
           type: BYTE
-          name: L1 0
+          name: H1 curve 0
         0x2:
-          short: "l1plus20"
+          short: "h1_plus20"
           type: BYTE
-          name: L1 +20          
+          name: H1 curve +20          
+        0x3:
+          short: "h1_min"
+          type: BYTE
+          name: H1 supply water minimum                    
+        0x4:
+          short: "h1_max"
+          type: BYTE
+          name: H1 supply water maximum
+        0x5:
+          short: "h1_drop"
+          type: BYTE
+          name: H1 amount of drop                              
+        0x6:
+          short: "h1_preinc"
+          type: BYTE
+          name: H1 amount of pre-increase
+        0x7:
+          short: "h1_roomcomp"
+          type: BYTE
+          name: H1 room compensation ratio
+        0x8:
+          short: "h1_frzprot0"
+          type: BYTE
+          name: H1 supply water freeze protection 0
+        0x9:
+          short: "h1_frzprotm20"
+          type: BYTE
+          name: H1 supply water freeze protection -20
+        0xa:
+          short: "h1_retlow0"
+          type: BYTE
+          name: H1 return water lower limit 0
+        0xb:
+          short: "h1_retlowm20"
+          type: BYTE
+          name: H1 return water lower limit -20
+        0xc:
+          short: "h1_retmax"
+          type: BYTE
+          name: H1 supply water return maximum
+        0xd:
+          short: "h1_dropexh"
+          type: BYTE
+          name: H1 exhaust fan drop
+        0xe:
+          short: "h1_autumn"
+          type: BYTE
+          name: H1 autumn drying temp level
+        0xf:
+          short: "h1_ecomplow"
+          type: BYTE
+          name: H1 e compensation lower limit
+        0x10:
+          short: "h1_ecompup"
+          type: BYTE
+          name: H1 e compensation upper limit
+        0x13:
+          short: "h1_outdelay"
+          type: BYTE
+          name: H1 outdoor delay 
+        0x14:
+          short: "h1_roomdelay"
+          type: BYTE
+          name: H1 room delay (0.5h step)
+        0x15:
+          short: "h1_actuator"
+          type: BYTE
+          name: H1 actuator # 0 = 3-point 1 = 0-10V 2 = 2-10V 3 = 230V 
+        0x16:
+          short: "h1_ctrlallow"
+          type: BYTE
+          name: H1 control allowed
+        0x17:
+          short: "h1_preinctime"
+          type: BYTE
+          name: H1 pre increase time
+        0x18:
+          short: "h1_ecompratio"
+          type: BYTE
+          name: H1 e compensation ratio
+    - 0x0d:
+        0x1:
+          short: "h1_rtemp"
+          type: TEMP_10
+          name: "H1 room temperature setting" 
+        0x3:
+          short: "h1_p"
+          type: SHORT
+          name: H1 P-area
+        0x5:
+          short: "h1_i"
+          type: SHORT
+          name: H1 I-time
+        0x7:
+          short: "h1_d"
+          type: SHORT
+          name: H1 D-time
+        0x9:
+          short: "h1_actdrvt"
+          type: SHORT
+          name: H1 actuator drive time
+        0xb:
+          short: "h2_rtemp"
+          type: TEMP_10
+          name: "H2 room temperature setting" 
+        0xd:
+          short: "h2_p"
+          type: SHORT
+          name: H2 P-area
+        0xf:
+          short: "h2_i"
+          type: SHORT
+          name: H2 I-time
+        0x11:
+          short: "h2_d"
+          type: SHORT
+          name: H2 D-time        
+        0x13:
+          short: "h2_actdrvt"
+          type: SHORT
+          name: H2 actuator drive time
+    - 0x0e:
+        0x0:
+          short: "h2_minus20"
+          type: BYTE
+          name: H2 curve -20
+        0x1:
+          short: "h2_zero"
+          type: BYTE
+          name: H2 curve 0
+        0x2:
+          short: "h2_plus20"
+          type: BYTE
+          name: H2 curve +20          
+        0x3:
+          short: "h2_min"
+          type: BYTE
+          name: H2 supply water minimum                    
+        0x4:
+          short: "h2_max"
+          type: BYTE
+          name: H2 supply water maximum
+        0x5:
+          short: "h2_drop"
+          type: BYTE
+          name: H2 amount of drop                              
+        0x6:
+          short: "h2_preinc"
+          type: BYTE
+          name: H2 amount of pre-increase
+        0x7:
+          short: "h2_roomcomp"
+          type: BYTE
+          name: H2 room compensation ratio
+        0x8:
+          short: "h2_frzprot0"
+          type: BYTE
+          name: H2 supply water freeze protection 0
+        0x9:
+          short: "h2_frzprotm20"
+          type: BYTE
+          name: H2 supply water freeze protection -20
+        0xa:
+          short: "h2_retlow0"
+          type: BYTE
+          name: H2 return water lower limit 0
+        0xb:
+          short: "h2_retlowm20"
+          type: BYTE
+          name: H2 return water lower limit -20
+        0xc:
+          short: "h2_retmax"
+          type: BYTE
+          name: H2 supply water return maximum
+        0xd:
+          short: "h2_dropexh"
+          type: BYTE
+          name: H2 exhaust fan drop
+        0xe:
+          short: "h2_autumn"
+          type: BYTE
+          name: H2 autumn drying temp level
+        0xf:
+          short: "h2_ecomplow"
+          type: BYTE
+          name: H2 e compensation lower limit
+        0x10:
+          short: "h2_ecompup"
+          type: BYTE
+          name: H2 e compensation upper limit
+        0x13:
+          short: "h2_outdelay"
+          type: BYTE
+          name: H2 outdoor delay 
+        0x14:
+          short: "h2_roomdelay"
+          type: BYTE
+          name: H2 room delay (0.5h step)
+        0x15:
+          short: "h2_actuator"
+          type: BYTE
+          name: H2 actuator # 0 = 3-point 1 = 0-10V 2 = 2-10V 3 = 230V 
+        0x16:
+          short: "h2_ctrlallow"
+          type: BYTE
+          name: H2 control allowed
+        0x17:
+          short: "h2_preinctime"
+          type: BYTE
+          name: H2 pre increase time
+        0x18:
+          short: "h2_ecompratio"
+          type: BYTE
+          name: H2 e compensation ratio
+    - 0x10:
+        0x1:
+          short: "hw_setting"
+          type: TEMP_10
+          name: HW temperature setting
+        0x3:
+          short: "hw_incr"
+          type: SHORT
+          name: HW amount of increase
+        0x5:
+          short: "hw_alarm"
+          type: SHORT
+          name: HW alarm limit
+        0x7:
+          short: "hw_antic"
+          type: SHORT
+          name: HW anticipate
+        0x9:
+          short: "hw_p"
+          type: SHORT
+          name: HW P-area 
+        0xb:
+          short: "hw_i"
+          type: SHORT
+          name: HW I-temp
+        0xd:
+          short: "hw_d"
+          type: SHORT
+          name: HW D-temp
+        0xf:
+          short: "hw_act"
+          type: SHORT
+          name: HW actuator selection
+        0x11:
+          short: "hw_actdrvt"
+          type: SHORT
+          name: HW actuator drive time
+        0x13:
+          short: "hw_quick"
+          type: SHORT
+          name: HW quick run
+        0x15:
+          short: "hw_alm_dly"
+          type: SHORT
+          name: HW alarm delay
+        0x17:
+          short: "hw_alm_limit"
+          type: SHORT
+          name: HW alarm limit
+        
+
+
+
