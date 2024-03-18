@@ -66,7 +66,12 @@ with open('config.yaml') as c:
 metrics={}
 
 metrics["device"]=Info('device', 'Device information')
-ser=serial.Serial(conf["ouman-prometheus"]["serial"],4800, timeout=1)
+
+# if socket connection, serial configuration parameter starts with s
+if conf["ouman-prometheus"]["serial"][0] == "s":
+    ser = serial.serial_for_url(conf["ouman-prometheus"]["serial"], timeout=1)
+else:
+    ser=serial.Serial(conf["ouman-prometheus"]["serial"],4800, timeout=1)
 
 # device model
 r=getregister(0x5f)
@@ -100,8 +105,6 @@ try:
 except KeyError:
     logging.error(f"Unknown device {model}.")
     exit()
-
-ser=serial.Serial(conf["ouman-prometheus"]["serial"],4800, timeout=1)
 
 start_http_server(conf["ouman-prometheus"]["port"])
 

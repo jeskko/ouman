@@ -1,6 +1,7 @@
 # basic config
 ouman-prometheus:
-  serial: /dev/ttyS4
+# serial: /dev/ttyS4
+  serial: socket://172.16.1.245:4001
   port: 9010
 
 # device registers
@@ -372,7 +373,3 @@ devices:
           short: "hw_alm_limit"
           type: SHORT
           name: HW alarm limit
-        
-
-
-
